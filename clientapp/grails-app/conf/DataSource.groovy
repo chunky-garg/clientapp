@@ -20,8 +20,8 @@ environments {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:postgresql://localhost:5432/wedding"
-            username = "blueoptima"
-            password = "blu30pt1ma"
+            username = "db_user"
+            password = "db_us3r"
         }
     }
     test {
@@ -33,8 +33,8 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            username="blueoptima"
-            password = "blu30pt1ma"
+            username = "db_user"
+            password = "db_us3r"
             url = "jdbc:postgresql://localhost:5432/wedding"
             dialect = org.hibernate.dialect.PostgreSQLDialect
             properties {

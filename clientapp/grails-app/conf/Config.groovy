@@ -101,9 +101,18 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/login/**':     			['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/logout/**':    			['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/api/**':                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/admin/**':                ['IS_AUTHENTICATED_ANONYMOUSLY']
+        '/admin/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
 
-        ]
+        //Admin functionality pages
+        '/pincode/**' :              ['IS_AUTHENTICATED_FULLY'],
+        '/city/**' :                 ['IS_AUTHENTICATED_FULLY'],
+        '/country/**' :              ['IS_AUTHENTICATED_FULLY'],
+        '/vendor/**' :               ['IS_AUTHENTICATED_FULLY'],
+        '/vendortype/**' :           ['IS_AUTHENTICATED_FULLY'],
+
+
+
+]
 
 environments {
     development {

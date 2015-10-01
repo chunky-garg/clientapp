@@ -1,5 +1,6 @@
-package com.wedding.app.client
+package com.wedding.app
 
+import com.wedding.app.Wedding
 import grails.plugin.springsecurity.SpringSecurityService
 
 import static org.springframework.http.HttpStatus.*

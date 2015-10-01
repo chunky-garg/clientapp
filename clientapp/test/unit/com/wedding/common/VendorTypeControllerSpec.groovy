@@ -1,6 +1,6 @@
 package com.wedding.common
 
-
+import com.wedding.vendors.VendorType
 import grails.test.mixin.*
 import spock.lang.*
 

@@ -1,5 +1,6 @@
 package com.wedding.common
 
+import com.wedding.vendors.Vendor
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 

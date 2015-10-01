@@ -1,14 +1,13 @@
-package com.wedding.common
+package com.wedding.vendors
 
-import com.wedding.vendors.VendorType
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(VendorType)
-class VendorTypeSpec extends Specification {
+@TestFor(VendorProfileDetail)
+class VendorProfileDetailSpec extends Specification {
 
     def setup() {
     }

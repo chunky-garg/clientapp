@@ -74,9 +74,9 @@ grails.project.dependency.resolution = {
                 ':rest:0.8',
                 ':spring-security-core:2.0-RC5',
                 ':spring-security-facebook:0.17',
-                ':spring-security-oauth-facebook:0.2',
+//                ':spring-security-oauth-facebook:0.2',
 //                ':spring-security-oauth-google:0.3.1',
-                ':spring-security-oauth:2.0.2',
+//                ':spring-security-oauth:2.0.2',
                 ':scaffolding:2.1.2'
 
 

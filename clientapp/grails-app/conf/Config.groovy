@@ -136,7 +136,7 @@ log4j = {
         console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     }
 
-    debug   'grails.app.controllers', 'grails.app.domain', 'grails.app.services'
+    debug   'grails.app.controllers', 'grails.app.domain', 'grails.app.services' , 'com.the6hours.grails.springsecurity.facebook'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -157,17 +157,17 @@ user.profile.pic.path="/profile/user/"
 // Added by the Spring Security OAuth plugin:
 grails.plugin.springsecurity.oauth.domainClass = 'com.wedding.app.security.OAuthID'
 
-oauth {
-    debug = true
-    providers {
-        facebook {
-            api = org.scribe.builder.api.FacebookApi
-            key = '155211021237321'
-            secret = '38cbad477de654c46c855b60038f7c21'
-            successUri = 'http://local.wedmered.com:8080/clientapp/oauth/facebook/success'
-            failureUri = 'http://local.wedmered.com:8080/clientapp/oauth/facebook/error'
-            callback = "http://local.wedmered.com:8080/clientapp/oauth/facebook/callback"
-        }
+//oauth {
+//    debug = true
+//    providers {
+//        facebook {
+//            api = org.scribe.builder.api.FacebookApi
+//            key = '155211021237321'
+//            secret = '38cbad477de654c46c855b60038f7c21'
+//            successUri = 'http://local.wedmered.com:8080/clientapp/oauth/facebook/success'
+//            failureUri = 'http://local.wedmered.com:8080/clientapp/oauth/facebook/error'
+//            callback = "http://local.wedmered.com:8080/clientapp/oauth/facebook/callback"
+//        }
 //
 
 //        google {
@@ -179,8 +179,8 @@ oauth {
 //            callback = "${baseURL}/oauth/google/callback"
 //            scope = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
 //        }
-    }
-}
+//    }
+//}
 
 
 
@@ -194,5 +194,6 @@ grails.plugin.springsecurity.facebook.filter.processUrl='/clientapp/wedding'
 //or following:
 //filter.types='transparent,cookieDirect,json'
 
-grails.plugin.springsecurity.facebook.autoCreate.enabled=true
-grails.plugin.springsecurity.facebook.autoCreate.roles=['ROLE_USER', 'ROLE_FACEBOOK',]
+//grails.plugin.springsecurity.facebook.autoCreate.enabled=true
+//grails.plugin.springsecurity.facebook.autoCreate.roles=['ROLE_USER', 'ROLE_FACEBOOK',]
+

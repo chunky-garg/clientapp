@@ -1,12 +1,13 @@
-package com.wedding.common
+package com.wedding.vendors
 
-import com.wedding.vendors.Vendor
+
+
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(VendorController)
-@Mock(Vendor)
-class VendorControllerSpec extends Specification {
+@TestFor(VendorProfileHeaderController)
+@Mock(VendorProfileHeader)
+class VendorProfileHeaderControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -20,8 +21,8 @@ class VendorControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.vendorInstanceList
-            model.vendorInstanceCount == 0
+            !model.vendorProfileHeaderInstanceList
+            model.vendorProfileHeaderInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -29,31 +30,31 @@ class VendorControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.vendorInstance!= null
+            model.vendorProfileHeaderInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when:"The save action is executed with an invalid instance"
-            def vendor = new Vendor()
-            vendor.validate()
-            controller.save(vendor)
+            def vendorProfileHeader = new VendorProfileHeader()
+            vendorProfileHeader.validate()
+            controller.save(vendorProfileHeader)
 
         then:"The create view is rendered again with the correct model"
-            model.vendorInstance!= null
+            model.vendorProfileHeaderInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            vendor = new Vendor(params)
+            vendorProfileHeader = new VendorProfileHeader(params)
 
-            controller.save(vendor)
+            controller.save(vendorProfileHeader)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/vendor/show/1'
+            response.redirectedUrl == '/vendorProfileHeader/show/1'
             controller.flash.message != null
-            Vendor.count() == 1
+            VendorProfileHeader.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -65,11 +66,11 @@ class VendorControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def vendor = new Vendor(params)
-            controller.show(vendor)
+            def vendorProfileHeader = new VendorProfileHeader(params)
+            controller.show(vendorProfileHeader)
 
         then:"A model is populated containing the domain instance"
-            model.vendorInstance == vendor
+            model.vendorProfileHeaderInstance == vendorProfileHeader
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -81,11 +82,11 @@ class VendorControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def vendor = new Vendor(params)
-            controller.edit(vendor)
+            def vendorProfileHeader = new VendorProfileHeader(params)
+            controller.edit(vendorProfileHeader)
 
         then:"A model is populated containing the domain instance"
-            model.vendorInstance == vendor
+            model.vendorProfileHeaderInstance == vendorProfileHeader
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -97,22 +98,22 @@ class VendorControllerSpec extends Specification {
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def vendor = new Vendor()
-            vendor.validate()
-            controller.update(vendor)
+            def vendorProfileHeader = new VendorProfileHeader()
+            vendorProfileHeader.validate()
+            controller.update(vendorProfileHeader)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.vendorInstance == vendor
+            model.vendorProfileHeaderInstance == vendorProfileHeader
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            vendor = new Vendor(params).save(flush: true)
-            controller.update(vendor)
+            vendorProfileHeader = new VendorProfileHeader(params).save(flush: true)
+            controller.update(vendorProfileHeader)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/vendor/show/$vendor.id"
+            response.redirectedUrl == "/vendorProfileHeader/show/$vendorProfileHeader.id"
             flash.message != null
     }
 
@@ -126,17 +127,17 @@ class VendorControllerSpec extends Specification {
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def vendor = new Vendor(params).save(flush: true)
+            def vendorProfileHeader = new VendorProfileHeader(params).save(flush: true)
 
         then:"It exists"
-            Vendor.count() == 1
+            VendorProfileHeader.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(vendor)
+            controller.delete(vendorProfileHeader)
 
         then:"The instance is deleted"
-            Vendor.count() == 0
-            response.redirectedUrl == '/vendor/index'
+            VendorProfileHeader.count() == 0
+            response.redirectedUrl == '/vendorProfileHeader/index'
             flash.message != null
     }
 }

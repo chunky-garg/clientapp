@@ -1,12 +1,14 @@
 package com.wedding.app.security
 
+import com.wedding.app.security.User
+
 class FacebookUser {
 
     Long uid
     String accessToken
     Date accessTokenExpires
-    User user
-    static belongsTo = [user: User] //connected to main Spring Security domain
+
+    static belongsTo = [user: User]
 
     static constraints = {
         uid unique: true

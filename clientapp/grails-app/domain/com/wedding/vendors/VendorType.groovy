@@ -1,4 +1,4 @@
-package com.wedding.common
+package com.wedding.vendors
 
 class VendorType {
 

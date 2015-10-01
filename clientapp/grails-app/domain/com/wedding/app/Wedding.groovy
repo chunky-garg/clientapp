@@ -1,4 +1,4 @@
-package com.wedding.app.client
+package com.wedding.app
 
 import com.wedding.app.admin.Template
 import com.wedding.app.security.User

@@ -28,7 +28,7 @@ grails.project.dependency.resolution = {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
     }
-    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "verbose" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
     legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
@@ -58,31 +58,35 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.42",
         // plugins or the compile step
         compile(
-                ':cache:1.1.1',
-                ':csv:0.3',
-                ':excel-import:1.0.0',
+                ':cache:1.1.8',
+                ':csv:0.3.1',
+//                ':excel-import:1.0.0',
                 ':export:1.5',
-                ':grails-template-engine:0.2.1',
-                ':grails-ui:1.2.3',
-                ':hibernate:3.6.10.1',
+//                ':grails-template-engine:0.2.1',
+//                ':grails-ui:1.2.3',
+                ':hibernate:3.6.10.19',
                 ':joda-time:1.5',
                 ':jquery-ui:1.10.3',
-                ':navigation:1.3.2',
-//        ':platform-core:1.0.0',
+//                ':navigation:1.3.2',
+                ':platform-core:1.0.0',
                 ':postgresql-extensions:0.6.1',
-                ':quartz:0.4.2',
-                ':rest:0.7',
-//                ':spring-security-core:1.2.7.3',
-                ':scaffolding:2.0.0'
+                ':quartz:1.0.2',
+                ':rest:0.8',
+                ':spring-security-core:2.0-RC5',
+                ':spring-security-facebook:0.17',
+                ':spring-security-oauth-facebook:0.2',
+//                ':spring-security-oauth-google:0.3.1',
+                ':spring-security-oauth:2.0.2',
+                ':scaffolding:2.1.2'
 
 
         )
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.1" // or ":hibernate4:4.1.11.1"
-        runtime ":database-migration:1.3.5"
-        runtime ":jquery:1.10.2"
-        runtime ":resources:1.2"
+//        runtime ":database-migration:1.3.5"
+        runtime ":jquery:1.11.1"
+        runtime ":asset-pipeline:1.8.3"
         build ":release:2.2.1"
 //        build ':jbossas:1.0'
         // Uncomment these (or add new ones) to enable additional resources capabilities

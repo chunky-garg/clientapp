@@ -1,6 +1,7 @@
 package com.wedding.app.client
 
 import com.wedding.app.admin.Template
+import com.wedding.app.security.User
 
 /**
  * Created by chunkygarg on 23/09/15.

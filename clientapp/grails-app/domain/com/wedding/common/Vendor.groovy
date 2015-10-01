@@ -1,5 +1,6 @@
 package com.wedding.common
 
+import com.wedding.app.security.User
 import com.wedding.common.location.Address
 
 class Vendor {
@@ -13,7 +14,8 @@ class Vendor {
     Address address
 
     static belongsTo = [
-            type: VendorType
+            type: VendorType,
+            user : User
     ]
 
     static constraints = {

@@ -83,14 +83,15 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+grails.plugin.springsecurity.facebook.domain.classname='com.wedding.app.security.FacebookUser'
+grails.plugin.springsecurity.facebook.domain.appUserConnectionPropertyName ='com.wedding.app.security.User'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.wedding.app.security.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.wedding.app.security.UserRole'
+grails.plugin.springsecurity.authority.className = 'com.wedding.app.security.Role'
+grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+grails.plugin.springsecurity.rejectIfNoRule = true
 
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.blueoptima.admin.user.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.blueoptima.admin.user.UserRole'
-grails.plugins.springsecurity.authority.className = 'com.blueoptima.admin.user.Role'
-grails.plugins.springsecurity.securityConfigType = 'InterceptUrlMap'
-grails.plugins.springsecurity.rejectIfNoRule = true
-
-grails.plugins.springsecurity.interceptUrlMap = [
+grails.plugin.springsecurity.interceptUrlMap = [
         '/*':   					['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/index/*':   				['IS_AUTHENTICATED_ANONYMOUSLY'],
 
@@ -102,6 +103,8 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/logout/**':    			['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/api/**':                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/admin/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/wedding/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/oauth/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
 
         //Admin functionality pages
         '/pincode/**' :              ['IS_AUTHENTICATED_FULLY'],
@@ -117,20 +120,23 @@ grails.plugins.springsecurity.interceptUrlMap = [
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.serverURL = "http://local.wedmered.com:8080"
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
 
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+//    Example of changing the log pattern for the default console appender:
+
+    appenders {
+        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+    }
+
+    debug   'grails.app.controllers', 'grails.app.domain', 'grails.app.services'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -146,3 +152,47 @@ log4j = {
 }
 
 user.profile.pic.path="/profile/user/"
+
+
+// Added by the Spring Security OAuth plugin:
+grails.plugin.springsecurity.oauth.domainClass = 'com.wedding.app.security.OAuthID'
+
+oauth {
+    debug = true
+    providers {
+        facebook {
+            api = org.scribe.builder.api.FacebookApi
+            key = '155211021237321'
+            secret = '38cbad477de654c46c855b60038f7c21'
+            successUri = 'http://local.wedmered.com:8080/clientapp/oauth/facebook/success'
+            failureUri = 'http://local.wedmered.com:8080/clientapp/oauth/facebook/error'
+            callback = "http://local.wedmered.com:8080/clientapp/oauth/facebook/callback"
+        }
+//
+
+//        google {
+//            api = org.scribe.builder.api.GoogleApi20
+//            key = 'oauth_google_key'
+//            secret = 'oauth_google_secret'
+//            successUri = '/oauth/google/success'
+//            failureUri = '/oauth/google/error'
+//            callback = "${baseURL}/oauth/google/callback"
+//            scope = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
+//        }
+    }
+}
+
+
+
+grails.plugin.springsecurity.facebook.domain.classname='com.wedding.app.security.FacebookUser'
+grails.plugin.springsecurity.facebook.domain.appUserConnectionPropertyName = 'user'
+grails.plugin.springsecurity.facebook.appId='155211021237321'
+grails.plugin.springsecurity.facebook.secret='38cbad477de654c46c855b60038f7c21'
+grails.plugin.springsecurity.facebook.filter.type='redirect'
+grails.plugin.springsecurity.facebook.filter.processUrl='/clientapp/wedding'
+
+//or following:
+//filter.types='transparent,cookieDirect,json'
+
+grails.plugin.springsecurity.facebook.autoCreate.enabled=true
+grails.plugin.springsecurity.facebook.autoCreate.roles=['ROLE_USER', 'ROLE_FACEBOOK',]

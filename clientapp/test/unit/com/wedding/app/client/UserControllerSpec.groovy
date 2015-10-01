@@ -1,7 +1,6 @@
 package com.wedding.app.client
 
-
-
+import com.wedding.app.security.User
 import grails.test.mixin.*
 import spock.lang.*
 

@@ -1,6 +1,6 @@
 package com.wedding.app.client
 
-
+import com.wedding.app.security.User
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional

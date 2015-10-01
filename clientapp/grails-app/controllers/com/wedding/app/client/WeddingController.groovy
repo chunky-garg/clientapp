@@ -1,5 +1,6 @@
 package com.wedding.app.client
 
+import grails.plugin.springsecurity.SpringSecurityService
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -8,10 +9,12 @@ import grails.transaction.Transactional
 class WeddingController {
 
     def scaffold=true
+    SpringSecurityService springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def view = {
+        println("User : " + springSecurityService.principal);
         render view: 'view.gsp', model:[wedding:Wedding.list()[0]]
     }
     def index(Integer max) {

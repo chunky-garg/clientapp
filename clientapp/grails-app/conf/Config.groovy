@@ -106,12 +106,17 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/wedding/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/oauth/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
 
+
+        '/category/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/subcategory/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/vendor/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/vendortype/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/user/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+
         //Admin functionality pages
         '/pincode/**' :              ['IS_AUTHENTICATED_FULLY'],
         '/city/**' :                 ['IS_AUTHENTICATED_FULLY'],
         '/country/**' :              ['IS_AUTHENTICATED_FULLY'],
-        '/vendor/**' :               ['IS_AUTHENTICATED_FULLY'],
-        '/vendortype/**' :           ['IS_AUTHENTICATED_FULLY'],
 
 
 
@@ -196,4 +201,18 @@ grails.plugin.springsecurity.facebook.filter.processUrl='/clientapp/wedding'
 
 //grails.plugin.springsecurity.facebook.autoCreate.enabled=true
 //grails.plugin.springsecurity.facebook.autoCreate.roles=['ROLE_USER', 'ROLE_FACEBOOK',]
+
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+	'/index':           ['permitAll'],
+	'/index.gsp':       ['permitAll'],
+	'/assets/**':       ['permitAll'],
+	'/**/js/**':        ['permitAll'],
+	'/**/css/**':       ['permitAll'],
+	'/**/images/**':    ['permitAll'],
+	'/**/favicon.ico':  ['permitAll']
+]
 

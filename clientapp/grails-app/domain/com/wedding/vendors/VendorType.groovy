@@ -14,7 +14,8 @@ class VendorType {
             vendors: Vendor
     ]
 
+    @Override
     public String toString() {
-        "Name :" + name +", Code : " + code
+        name
     }
 }

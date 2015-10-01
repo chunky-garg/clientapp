@@ -14,6 +14,7 @@ class SubCategory {
         code blank: false, unique: true
     }
 
+    @Override
     public String toString() {
         name
     }

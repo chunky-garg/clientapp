@@ -2,7 +2,6 @@ package com.wedding.vendors
 
 class VendorProfileDetail {
 
-    VendorProfileHeader header
     Category category
     SubCategory subCategory
     String value
@@ -14,6 +13,7 @@ class VendorProfileDetail {
 
 
     static constraints = {
-        header nullable: false
+        subCategory nullable: true
+        value nullable: true
     }
 }

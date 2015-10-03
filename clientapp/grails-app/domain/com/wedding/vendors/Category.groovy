@@ -12,7 +12,7 @@ class Category {
     ProfileHeader header
 
     static belongsTo = [
-            header: VendorProfileHeader
+            header: ProfileHeader
     ]
 
     static hasMany = [

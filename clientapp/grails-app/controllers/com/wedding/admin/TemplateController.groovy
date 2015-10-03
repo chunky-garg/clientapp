@@ -1,4 +1,4 @@
-package com.wedding.app.admin
+package com.wedding.admin
 
 
 

@@ -59,7 +59,7 @@ class User {
     }
 
 
-    static mapping = { table ('public.user') }
+    //static mapping = { table ('public.user') }
 
     public String toString() {
         return firstName

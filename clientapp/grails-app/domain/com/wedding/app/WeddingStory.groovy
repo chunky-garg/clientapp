@@ -1,6 +1,6 @@
 package com.wedding.app
 
-import com.wedding.common.location.constants.AppConstants
+import com.wedding.AppConstants
 
 class WeddingStory {
 

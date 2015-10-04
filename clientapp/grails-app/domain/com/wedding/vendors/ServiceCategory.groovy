@@ -11,7 +11,7 @@ class ServiceCategory {
     }
 
     static hasMany = [
-            vendors: Vendor
+            vendors: VendorService
     ]
 
     @Override

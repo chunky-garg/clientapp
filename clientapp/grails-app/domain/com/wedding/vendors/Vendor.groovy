@@ -26,13 +26,9 @@ class Vendor {
             user : User
     ]
 
-    static hasMay =[
-            services:VendorService
-    ]
-
-
     static hasMany= {
         reviews: VendorServiceReview
+        services: VendorService
     }
 
     static constraints = {

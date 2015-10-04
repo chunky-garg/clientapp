@@ -2,13 +2,13 @@ package com.wedding.vendors
 
 import com.wedding.app.security.User
 
-class VendorReview implements Serializable {
+class VendorServiceReview implements Serializable {
 
     Integer rating
     String comment
 
     static belongs = [
-     vendor : Vendor,
+     vendorService : VendorService,
      user: User
     ]
 

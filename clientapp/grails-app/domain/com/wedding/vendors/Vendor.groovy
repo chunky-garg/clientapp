@@ -23,18 +23,21 @@ class Vendor {
 
 
     static belongsTo = [
-            type: VendorType,
             user : User
     ]
 
+    static hasMay =[
+            services:VendorService
+    ]
+
+
     static hasMany= {
-        reviews: VendorReview
+        reviews: VendorServiceReview
     }
 
     static constraints = {
         name blank: false
         code blank:false, unique: true //required to form unique access url for each vendor
-        type nullable: false
         description nullable: true
         active nullable: true
         address nullable: true

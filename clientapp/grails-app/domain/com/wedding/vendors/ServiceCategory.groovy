@@ -1,6 +1,6 @@
 package com.wedding.vendors
 
-class VendorType {
+class ServiceCategory {
 
     String name;
     String code;

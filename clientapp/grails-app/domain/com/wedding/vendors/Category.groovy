@@ -16,7 +16,7 @@ class Category {
     ]
 
     static hasMany = [
-            vendorTypes: VendorType
+            serviceCategories: ServiceCategory
     ]
 
     static constraints = {

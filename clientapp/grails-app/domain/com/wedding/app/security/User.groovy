@@ -1,5 +1,7 @@
 package com.wedding.app.security
 
+import com.wedding.vendors.Vendor
+
 
 /**
  * Created by chunkygarg on 23/09/15.
@@ -20,23 +22,26 @@ class User {
     boolean accountLocked
     boolean passwordExpired
 
-    static hasMany = [oAuthIDs: OAuthID]
+    static hasMany = [
+            oAuthIDs: OAuthID,
+            vendors : Vendor
+    ]
 
 
     static constraints = {
 
-        username blank:false
+        username blank: false
         firstName nullable: true
         middleName nullable: true
         lastName nullable: true
 
-        accountExpired default:false
-        accountLocked default:false
-        passwordExpired default:false
+        accountExpired default: false
+        accountLocked default: false
+        passwordExpired default: false
 
     }
 
-    static transients =[
+    static transients = [
             'authorities'
     ]
 

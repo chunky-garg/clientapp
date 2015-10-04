@@ -3,7 +3,7 @@ package com.wedding.vendors
 class VendorProfile {
 
     static belongsTo =[
-            vendor :Vendor
+            vendor :VendorService
     ]
 
     static hasMany = [

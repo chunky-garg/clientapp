@@ -7,9 +7,8 @@ class VendorProfileDetail {
     String value
 
     static belongsTo = [
-            vendorProfile:VendorProfile
+            vendorProfile: VendorProfile
     ]
-
 
 
     static constraints = {

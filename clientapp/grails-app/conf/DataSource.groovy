@@ -1,9 +1,9 @@
 dataSource {
 //    configClass = 'TablePerSubclassConfiguration'
     pooled = false
-    driverClassName = "org.postgresql.Driver"
-    username = "db_user"
-    password = "db_us3r"
+    driverClassName = "com.mysql.jdbc.Driver"
+    username = "admin"
+    password = "vegeta"
 
 //    jndiName = "java:/bo/datasource"
 }
@@ -19,26 +19,26 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/wedding"
-            username = "db_user"
-            password = "db_us3r"
+            url = "jdbc:mysql://localhost:3306/wedding?autoReconnect=true"
+            username = "admin"
+            password = "vegeta"
         }
     }
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:postgresql://localhost:5432/wedding"
+            url = "jdbc:mysql://localhost:3306/wedding?autoReconnect=true"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            username = "db_user"
-            password = "db_us3r"
-            url = "jdbc:postgresql://localhost:5432/wedding"
-            dialect = org.hibernate.dialect.PostgreSQLDialect
+            username = "admin"
+            password = "vegeta"
+            url = "jdbc:mysql://localhost:3306/wedding?autoReconnect=true"
+            dialect = org.hibernate.dialect.MySQL5InnoDBDialect
             properties {
-                maxActive = -1
+                //maxActive = 1000
                 minEvictableIdleTimeMillis=1800000
                 timeBetweenEvictionRunsMillis=1800000
                 numTestsPerEvictionRun=3

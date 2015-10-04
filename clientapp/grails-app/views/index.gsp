@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main"/>
@@ -119,4 +119,14 @@
 			</div>
 		</div>
 	</body>
+</html> -->
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="<g:resource dir='css' file='styles.css'/>"/>
+</head>
+<body>
+<div class="container">Hi</div>
+<g:javascript src="jquery-2.1.4.min.js"></g:javascript>
+<g:javascript src="bootstrap.js"></g:javascript>
+</body>
 </html>

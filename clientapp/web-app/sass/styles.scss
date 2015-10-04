@@ -1,0 +1,24 @@
+@import "bootstrap-compass";
+@import "bootstrap-variables";
+@import "bootstrap";
+
+html, body{
+	font-size: 14px;
+	max-width: 100%;
+	width:100%;
+}
+
+.header{
+	background-color:#f44336;
+	width:100%;
+	height:80px;
+	display:flex;
+}
+
+.footer{
+	background-color:#f44336;
+	width:100%;
+	height:50px;
+	position: fixed;
+	bottom: 0;
+}
